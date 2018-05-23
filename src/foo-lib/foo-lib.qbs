@@ -13,13 +13,13 @@ DynamicLibrary {
     Group {
         fileTagsFilter: [ "bundle.content" ]
         qbs.install: true
-        qbs.installDir: "foo-app.app/Contents/Frameworks"
+        qbs.installDir: "/Applications/Foo App.app/Contents/Frameworks"
         qbs.installSourceBase: product.buildDirectory
     }
 
     Depends { name: "cpp" }
     Depends { name: "Qt"; submodules: "core" }
-    cpp.defines: ["FOO_LIBRARY"]
+    cpp.defines: [ "FOO_LIBRARY" ]
 
     Export {
         Depends { name: "cpp" }

@@ -1,21 +1,22 @@
 import qbs 1.0
 
 CppApplication {
-    Group {
-        files: [
-            "main.cpp",
-            "mainwindow.cpp",
-            "mainwindow.h",
-            "mainwindow.ui",
-        ]
-    }
+    targetName: "Foo App"
 
-    Group {
-        fileTagsFilter: product.type
-        qbs.install: true
-        qbs.installSourceBase: product.buildDirectory
-    }
+    files: [
+        "main.cpp",
+        "mainwindow.cpp",
+        "mainwindow.h",
+        "mainwindow.ui",
+    ]
 
     Depends { name: "foo-lib" }
-    Depends { name: "Qt"; submodules: ["widgets"] }
+    Depends { name: "Qt"; submodules: [ "widgets" ] }
+
+    Group {
+        fileTagsFilter: [ "bundle.content" ]
+        qbs.install: true
+        qbs.installDir: "/Applications"
+        qbs.installSourceBase: product.buildDirectory
+    }
 }
