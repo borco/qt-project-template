@@ -1,0 +1,8 @@
+*/build*
+*.pro.user*
+*.txt.user*
+*.qbs.user*
+*CMakeSettings.json*
+.vs
+*.qmake.stash*
+.DS_Store
